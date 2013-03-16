@@ -1,0 +1,17 @@
+<section class='{{slide.class}}' data-state='{{slide.ds}}'>
+   <section>
+    {{{ slide.header }}}
+    {{{ slide.content }}}
+    <aside class='notes'>
+      {{{ slide.pnotes }}}
+    </aside>
+   </section>
+   {{# slide.blocks }}
+   <section>
+    {{{ html }}}
+    <aside class='notes'>
+      {{{ pnotes.html }}}
+    </aside>
+   </section>
+   {{/ slide.blocks }}
+</section>

@@ -1,0 +1,93 @@
+---
+title: SciAnimator
+subtitle: Test
+author: Ramnath Vaidyanathan
+job: Assistant Professor, McGill
+url:
+  lib: ../../libraries
+widgets: [quiz, bootstrap]
+--- 
+
+<style>
+body {
+  background-color: #000;
+}
+</style>
+
+<script src={{page.url.widgets}}/scianimator/js/jquery.scianimator.pack.js></script>
+<link rel='stylesheet' href={{page.url.widgets}}/scianimator/css/scianimator.css>
+
+
+## kMeans Animation
+
+
+```{r fig.show = 'animate', echo = F, fig.width = 12}
+opts_knit$set(animation.fun = hook_scianimator)
+par(bg = 'white')
+animation::kmeans.ani()
+```
+
+--- .quiz &radio
+
+## Question 1
+
+<style>
+.modal-body iframe {
+  height: 350px;
+}
+</style>
+
+The number of friends a person has on facebook is approximately normal with mean 190 and standard deviation 36. If the number of friends Chris has is 2.5 standard deviations above the mean, how many friends does he have? 
+
+1. 192.5
+2. _280_
+3. `r 190 + 36`
+4. `r 190 + 2*36`
+
+*** .explanation
+
+It is trivial
+
+<iframe width="560" height="200" src="http://www.youtube.com/embed/cRb2ONJAvog" frameborder="0" allowfullscreen></iframe>
+
+--- .quiz &radio
+
+## Question 2
+
+The number of friends a person has on facebook is approximately normal with mean 190 and standard deviation 36. What percentage of people have less than 240 facebook friends ?
+
+```{r echo = FALSE}
+calc_prob <- function(){
+ mu = 190
+ sigma = 36
+ x = 240
+ z = (x - mu)/sigma
+ p = pnorm(z, lower.tail = T)
+ sprintf("%s%%", round(p,2)*100)
+}
+```
+
+1. _`r calc_prob()`_
+2. 80%
+3. 60%
+4. 55%
+
+*** .hint
+
+Convert 240 to a z-score and use the standard normal table.
+
+*** .explanation
+
+## Solution 
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/GF0qAvNKpOA" frameborder="0" allowfullscreen></iframe>
+
+---
+
+## Variables
+
+<iframe src="http://www.screenr.com/embed/qyT8" width="650" height="200" frameborder="0"></iframe>
+
+*** =pnotes
+
+A variable is simply a placeholder to store an object in R. Watch this video to quickly get up to speed on how to create variables in R.

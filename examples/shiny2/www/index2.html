@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Integrated Learning Environment</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Integrated Learning Environment">
+  <meta name="author" content="Ramnath Vaidyanathan">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="./libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="./libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="./libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="./libraries/highlighters/highlight.js/css/zenburn.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel="stylesheet" href = "./libraries/widgets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href = "./libraries/widgets/quiz/css/demo.css">
+<link rel="stylesheet" href = "./assets/css/app.css">
+<link rel="stylesheet" href = "./assets/css/ribbons.css">
+
+  
+  <!-- JAVASCRIPTS -->
+  <script data-main="./libraries/frameworks/io2012/js/slides" 
+    src="./libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="./libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script>
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <aside class="gdbar">
+    <img src="./assets/img/mcgill_logo_small.png">
+  </aside>
+  <hgroup class="auto-fadein">
+    <h1>Integrated Learning Environment</h1>
+    <h2>A Prototype</h2>
+    <p>Ramnath Vaidyanathan<br/>Assistant Professor, McGill</p>
+  </hgroup>
+    <a href="https://github.com/ramnathv/slidify/zipball/gh-pages" class="example">
+     Download
+    </a>
+  <article></article>  
+  <footer class = 'license'>
+    <a href='http://creativecommons.org/licenses/by-nc-sa/3.0/'>
+    <img width = '80px' src = 'http://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png'>
+    </a>
+  </footer>
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Outline</h2>
+  </hgroup>
+  <article data-timings="10">
+    <p>This is a prototype for an integrated learning environment that combines video with slides and an interactive R console to facilitate learning. It uses several open source tools </p>
+
+<ol>
+<li><a href="http://popcornjs.org/">Popcorn</a></li>
+<li><a href="https://github.com/lurodrigo/jquery-quiz">jQuery-Quiz</a></li>
+<li><a href="https://github.com/rstudio/shiny">Shiny</a></li>
+<li><a href="https://github.com/yihui/knitr">knitr</a></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <article data-timings="15">
+    <iframe src='http://glimmer.rstudio.com:8787/'></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="segue" id="slide-3" style="background:#68A6F7;">
+  <hgroup>
+    <h2>Shiny</h2>
+  </hgroup>
+  <article data-timings="20">
+    
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Shiny Application 1</h2>
+  </hgroup>
+  <article data-timings="25">
+    
+<div class='row-fluid'>
+<div class='span4'>
+  <form class='well'>
+  <p><label class="control-label" for="dist">Distribution:</label>
+<select id="dist">
+  <option value="norm" selected="selected">Normal</option>
+  <option value="exp">Exponential</option>
+  <option value="unif">Uniform</option>
+  <option value="lnorm">Log-Normal</option>
+</select><label>Number of Observations</label>
+<input id="n" type="number" value="500" min="1" max="1000"/></p>
+
+  </form>
+</div>
+<div class='span8'>
+  <div id="plot1" class="shiny-plot-output" style="width: 100% ; height: 300px"></div>
+
+</div>
+</div>
+
+<aside class='note'>
+<pre><code>
+  ---  &shiny dt:20
+
+## Shiny Application 1
+
+*** =input
+
+```{r}
+show(selectInput("dist", "Distribution:", list(
+  "Normal" = "norm", 
+  "Exponential" = "exp", 
+  "Uniform" = "unif",
+  "Log-Normal" = "lnorm")
+))
+show(numericInput('n', 'Number of Observations', value = 500, min = 1, max = 1000))
+```
+
+*** =output
+
+```{r}
+show(plotOutput(outputId = "plot1", height = "300px"))
+```
+
+</code></pre>
+</aside>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>Shiny Application 2</h2>
+  </hgroup>
+  <article data-timings="30">
+    
+<div class='row-fluid'>
+<div class='span4'>
+  <form class='well'>
+  <h3>Inputs</h3>
+
+<p><label>Caption:</label>
+<input id="caption" type="text" value="Data Summary"/><label class="control-label" for="dataset">Choose a dataset:</label>
+<select id="dataset">
+  <option value="rock" selected="selected">rock</option>
+  <option value="pressure">pressure</option>
+  <option value="cars">cars</option>
+</select><label>Number of observations to view:</label>
+<input id="obs" type="number" value="10"/></p>
+
+  </form>
+</div>
+<div class='span8'>
+  <p><h3>
+  <div id="caption" class="shiny-text-output"></div>
+</h3><div id="view" class="shiny-html-output"></div></p>
+
+</div>
+</div>
+
+<aside class='note'>
+<pre><code>
+  ---  &shiny dt:30
+
+## Shiny Application 2
+
+
+*** =input 
+
+### Inputs
+
+```{r input-1, message = F}
+show(textInput("caption", "Caption:", "Data Summary"))
+show(selectInput("dataset", "Choose a dataset:", choices = c("rock", "pressure", "cars")))
+show(numericInput("obs", "Number of observations to view:", 10))
+# require(shinyExt)
+# show(actionButton('test4', 'label4'))
+```
+
+*** =output
+
+```{r output-1}
+show(h3(textOutput("caption")))
+show(tableOutput("view"))
+```
+</code></pre>
+</aside>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-6" style="background:;">
+  <hgroup>
+    <h2>Try R</h2>
+  </hgroup>
+  <article data-timings="40">
+    
+<div class='row-fluid'>
+<div class='span4'>
+  <form class='well'>
+    <p>Type any sequence of R commands in the box below and hit the Run button to see the results of execution. Useful for R Tutorials.</p>
+
+<p><textarea class='knitCode'>
+seq(1, 20)
+</textarea></p>
+
+    <div id='aceeditor1'></div>
+    <div class='opencpu'>
+      <button id="run1" type="button" class="btn btn-primary action-button">
+        <i class="icon-play icon-white"></i> Run
+      </button>
+    </div>
+    <br/>
+  </form>
+</div>
+<div class='span8'>
+  <div id="result1" class="shiny-html-output"></div>
+</div>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-7" style="background:;">
+  <hgroup>
+    <h2>Flipping a Coin 500 times</h2>
+  </hgroup>
+  <article data-timings="50">
+    
+<div class='row-fluid'>
+<div class='span5'>
+  <form>
+    <p>We can now repeat the process of flipping 5 coins, 500 times and plot a histogram of the distribution.</p>
+
+<textarea class="knitCode">
+require(mosaic)
+toss500 = do(500) * nflip(5)
+hist(toss500$result)
+</textarea>
+
+<ol class = "build incremental">
+<li>Change the fill color to darkred.</li>
+<li>Change the number of bins to 5.</li>
+</ol>
+    <div class='opencpu'>
+        <div id="aceeditor2"></div>
+        <br/>
+        <a id="run2" type="button" class="btn btn-primary action-button">
+          <i class="icon-play icon-white"></i> Run
+        </a>
+       <a id="clear2" class='btn btn-danger'>
+        <i class="icon-remove icon-white"></i> Clear
+      </a>
+        <a class='hint btn btn-success' href='#' title="&lt;p&gt;You can use the &lt;code&gt;col&lt;/code&gt; argument to change the fill color of the bars&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;r&quot;&gt;hist(toss500$result, col = &amp;quot;darkred&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+">
+<i class="icon-bookmark icon-white"></i> Hint</a>
+      </div>
+  </form>
+</div>
+<div class='span7'>
+  <div id="result2" class="shiny-html-output"></div>
+</div>
+</div>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="quiz" id="slide-8" style="background:;">
+  <hgroup>
+    <h2>Quiz</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz-single well new">
+  <p>What is the sum of 1 + 1?</p>
+
+<ol>
+<li>1</li>
+<li><em>2</em></li>
+<li>3</li>
+<li>4</li>
+</ol>
+
+  
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear">Clear</button>
+  
+  <div class="quiz-hint">
+    <p>This is a hint</p>
+
+  </div>
+  <div class="quiz-explanation">
+    <p>This is the explanation</p>
+
+  </div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-9" style="background:;">
+  <hgroup>
+    <h2>Bootstrap</h2>
+  </hgroup>
+  <article data-timings="">
+    <p><strong>Blocks</strong></p>
+
+<div class="alert alert-info">
+ <p>This is an alert info block which should render in blue</p>
+</div>
+  
+
+<p><strong>Tooltips</strong></p>
+
+<p>This is to check out tooltips in bootstrap <a href="#" rel="tooltip" data-original-title="Default tooltip">you probably</a></p>
+
+<p><strong>Popover</strong></p>
+
+<p><a class="btn btn-large btn-danger" rel="popover" data-content="And here's some amazing content. It's very engaging. right?" data-original-title="A Title" id='example'>Click to toggle popover</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note">
+    <section>
+      <p>The font size and color needs some tweaking.</p>
+
+    </section>
+  </aside>
+</slide>
+
+<slide class="" id="slide-10" style="background:;">
+  <hgroup>
+    <h2>Mathjax</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>\[
+\begin{aligned}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} & = 0 \end{aligned}
+\]
+<br />
+\[
+\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
+\mathbf{i} & \mathbf{j} & \mathbf{k} \\
+\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
+\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0
+\end{vmatrix}
+\]</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+
+    <slide class="backdrop"></slide>
+    <section class="video" id="video">
+      <div id="player" style="width: 160px; height: 120px"></div>
+    </section>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Load Javascripts for Widgets -->
+<script src="shared/jquery.js" type="text/javascript"></script>
+<script src="shared/shiny.js" type="text/javascript"></script>
+<script src="shared/slider/js/jquery.slider.min.js"></script>
+<script src="shared/bootstrap/js/bootstrap.min.js"></script>
+<script src="./libraries/widgets/shiny/js/actionbutton.js"></script>
+<!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="./libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<script src='./libraries/widgets/bootstrap/js/bootstrap.min.js'></script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>  
+<script src="./../../../libraries/widgets/popcornjs/js/popcorn-complete.min.js"></script>
+<script>
+    function handleDomLoadedExtra() {
+      var pop = Popcorn.vimeo(
+        "player",
+        "http://player.vimeo.com/video/41823197");
+
+      var articles = document.getElementsByTagName('article');
+      for (var i = 0; i < articles.length; ++i) {
+        var article = articles[i];
+        var timings = article.getAttribute("data-timings");
+        if (timings != null) {
+          var starts = timings.split(",");
+          for (var j = 0; j < starts.length; ++j) {
+            pop.code({
+              start: parseInt(starts[j]),
+              slideNumber: i,
+              onStart: function(options) {
+                window.slidedeck.gotoSlide(options.slideNumber);
+                if (window.slidedeck.curSlide_ === 7){
+                  runAll();
+                }
+              }
+            });
+          }
+        }
+      }
+    };
+    $("document").ready(function(){
+      handleDomLoadedExtra();
+    });
+</script>
+<style>
+    section.video {
+      position: absolute;
+      top: 0;
+     right: 0;
+      z-index: 1000;
+    }
+    span.highlight {
+      background-color: #ff0;
+    }
+    div.speakerrate {
+      position: absolute;
+      bottom: 100px;
+      right: 25px;
+    }
+</style>
+<script src='./libraries/widgets/quiz/js/jquery.quiz.js'></script>
+<script src='./libraries/widgets/quiz/js/mustache.min.js'></script>
+<script type="text/javascript">
+ $('.quiz').find('li:has(em)').addClass('quiz-answer')
+ $('li.quiz-answer em').replaceWith(function(){
+   return $(this).contents()
+ })
+ $('.quiz').find('li').addClass('quiz-option')
+ $.quiz();
+</script>
+<style type="text/css" media="screen">
+div.ace_editor { 
+  height: 150px;
+  position: relative;
+  border-top: 40px;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+  border-bottom-right-radius: 0px;
+  margin-top: 10px;
+}
+</style>
+<script type="text/javascript" charset="utf-8" src="./libraries/widgets/ace/js/ace.js">
+</script>
+<script type="text/javascript" charset="utf-8" src="./libraries/widgets/shiny/js/ace-shiny.js">
+</script>
+
+<script src="https://raw.github.com/makeusabrew/bootbox/v3.0.0/bootbox.min.js"></script>
+
+
+
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="./libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>

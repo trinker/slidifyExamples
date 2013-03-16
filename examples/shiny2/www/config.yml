@@ -1,0 +1,13 @@
+license: by-nc-sa
+widgets: [shiny, mathjax, bootstrap, popcornjs, quiz]
+github: {user: ramnathv, repo: slidify}
+logo: mcgill_logo_small.png
+url: {lib: ./../../../libraries, assets: ./assets}
+mode: selfcontained
+hitheme: zenburn
+popcornjs:
+  player: vimeo
+  video: http://player.vimeo.com/video/41823197
+video: true
+bootstrap:
+  bootbox: true

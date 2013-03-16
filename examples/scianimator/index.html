@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SciAnimator</title>
+  <meta charset="utf-8">
+  <meta name="description" content="SciAnimator">
+  <meta name="author" content="Ramnath Vaidyanathan">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="../../libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="../../libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="../../libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="../../libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel="stylesheet" href = "../../libraries/widgets/quiz/css/demo.css">
+<link rel="stylesheet" href = "../../libraries/widgets/bootstrap/css/bootstrap.min.css">
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../libraries/widgets/quiz/js/jquery-1.7.min.js"><\/script>')</script> 
+  <script data-main="../../libraries/frameworks/io2012/js/slides" 
+    src="../../libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>SciAnimator</h1>
+    <h2>Test</h2>
+    <p>Ramnath Vaidyanathan<br/>Assistant Professor, McGill</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    
+  </hgroup>
+  <article data-timings="">
+    <style>
+body {
+  background-color: #000;
+}
+</style>
+
+<script src=../../libraries/widgets/scianimator/js/jquery.scianimator.pack.js></script>
+
+<p><link rel='stylesheet' href=../../libraries/widgets/scianimator/css/scianimator.css></p>
+
+<h2>kMeans Animation</h2>
+
+<div class="scianimator">
+<div id="unnamed_chunk_1" style="display: inline-block;">
+</div>
+
+<p></div></p>
+
+<script type="text/javascript">
+  (function($) {
+    $(document).ready(function() {
+      var imgs = Array(8);
+      for (i=0; ; i++) {
+        if (i == imgs.length) break;
+        imgs[i] = "assets/fig/unnamed-chunk-1" + (i + 1) + ".png";
+      }
+      $("#unnamed_chunk_1").scianimator({
+          "images": imgs,
+          "delay": 1000,
+          "controls": ["first", "previous", "play", "next", "last", "loop", "speed"],
+      });
+      $("#unnamed_chunk_1").scianimator("play");
+    });
+  })(jQuery);
+</script>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="quiz" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Question 1</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz-single well new">
+  <style>
+.modal-body iframe {
+  height: 350px;
+}
+</style>
+
+<p>The number of friends a person has on facebook is approximately normal with mean 190 and standard deviation 36. If the number of friends Chris has is 2.5 standard deviations above the mean, how many friends does he have? </p>
+
+<ol>
+<li>192.5</li>
+<li><em>280</em></li>
+<li>226</li>
+<li>262</li>
+</ol>
+
+  
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear">Clear</button>
+  
+  <div class="quiz-explanation">
+    <p>It is trivial</p>
+
+<iframe width="560" height="200" src="http://www.youtube.com/embed/cRb2ONJAvog" frameborder="0" allowfullscreen></iframe>
+
+  </div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="quiz" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Question 2</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div class="quiz-single well new">
+  <p>The number of friends a person has on facebook is approximately normal with mean 190 and standard deviation 36. What percentage of people have less than 240 facebook friends ?</p>
+
+<ol>
+<li><em>92%</em></li>
+<li>80%</li>
+<li>60%</li>
+<li>55%</li>
+</ol>
+
+  
+  <button class="quiz-submit btn btn-primary">Submit</button>
+  <button class="quiz-toggle-hint btn">Show Hint</button>
+  <button class="quiz-show-answer btn btn-success">Show Answer</button>
+  <button class="quiz-clear">Clear</button>
+  
+  <div class="quiz-hint">
+    <p>Convert 240 to a z-score and use the standard normal table.</p>
+
+  </div>
+  <div class="quiz-explanation">
+    <h2>Solution</h2>
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/GF0qAvNKpOA" frameborder="0" allowfullscreen></iframe>
+
+  </div>
+  
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Variables</h2>
+  </hgroup>
+  <article data-timings="">
+    <iframe src="http://www.screenr.com/embed/qyT8" width="650" height="200" frameborder="0"></iframe>
+
+  </article>
+  <!-- Presenter Notes -->
+  <aside class="note">
+    <section>
+      <p>A variable is simply a placeholder to store an object in R. Watch this video to quickly get up to speed on how to create variables in R.</p>
+
+    </section>
+  </aside>
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+
+  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+<!-- Load Javascripts for Widgets -->
+<script src='../../libraries/widgets/quiz/js/jquery.quiz.js'></script>
+<script src='../../libraries/widgets/quiz/js/mustache.min.js'></script>
+<script src='../../libraries/widgets/quiz/js/quiz-app.js'></script>
+
+<script src='../../libraries/widgets/bootstrap/js/bootstrap.min.js'></script>
+<script src="../../libraries/widgets/bootstrap/js/bootbox.min.js"></script>
+<script>  
+$(function (){ 
+  $("#example").popover(); 
+  $("[rel='tooltip']").tooltip(); 
+});  
+</script>  
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="../../libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+</html>
